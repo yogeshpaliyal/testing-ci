@@ -1,0 +1,24 @@
+name: Publish
+on:
+  workflow_dispatch:
+    inputs:
+      releaseNotes:
+        description: 'Release Notes'
+        required: true
+        
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Change File Text
+        run: hello >> readme.md
+        
+      - name: Run file name
+        run: echo readme.md
+        
+        
